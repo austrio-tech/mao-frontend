@@ -1,0 +1,6 @@
+/* src/pages/HomePage/HomePage.module.css */
+.homePage {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}

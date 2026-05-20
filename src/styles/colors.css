@@ -1,0 +1,58 @@
+:root {
+  /* Premium Primary Colors - Deep Navy to Sapphire */
+  --primary-color: #0f172a;
+  --primary-light: #1e2d47;
+  --primary-dark: #0a0f1f;
+  --primary-accent: #1a3a52;
+
+  /* Premium Accent Colors - Luxe Gold & Emerald */
+  --accent-color: #d4af37;
+  --accent-light: #e8c547;
+  --accent-dark: #b8931f;
+  --accent-secondary: #2dd4bf;
+
+  /* Premium Neutral Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #e0e7ff;
+  --text-dark: #1a1f3a;
+  --text-muted: #6b7280;
+  --text-light: #f3f4f6;
+
+  /* Premium Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+  --bg-dark: #0f172a;
+  --bg-darker: #0a0f1f;
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1a3a52 50%, #0f172a 100%);
+
+  /* Glass & Backdrop */
+  --glass-bg: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Semantic Colors */
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  --info: #0ea5e9;
+
+  /* Premium Borders & Shadows */
+  --border-color: #e5e7eb;
+  --border-light: #f3f4f6;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-light: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-medium: 0 12px 32px rgba(15, 23, 42, 0.12);
+  --shadow-dark: 0 20px 48px rgba(15, 23, 42, 0.18);
+  --shadow-xl: 0 24px 64px rgba(15, 23, 42, 0.24);
+  --shadow-hover: 0 20px 48px rgba(212, 175, 55, 0.2);
+  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.15);
+
+  /* Transitions */
+  --transition-xs: 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slower: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}

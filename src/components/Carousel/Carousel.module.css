@@ -1,0 +1,143 @@
+.carousel {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-accent) 50%, var(--primary-dark) 100%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+}
+
+.carousel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><circle cx="40" cy="40" r="2" fill="rgba(212,175,55,0.3)"/></pattern></defs><rect width="1200" height="400" fill="url(%23grid)"/></svg>');
+  opacity: 0.4;
+  animation: slidePattern 25s linear infinite;
+}
+
+.carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(45, 212, 191, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+@keyframes slidePattern {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(80px); }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(20px);
+  }
+}
+
+.watermark {
+  position: absolute;
+  width: 70vmin;
+  height: 70vmin;
+  opacity: 0.90;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  pointer-events: none;
+  filter: invert(1) 
+  /* drop-shadow(0 1px 1px rgba(0, 0, 0, 1)) 
+  drop-shadow(0 -1px 1px rgba(0, 0, 0, 1))  */
+  drop-shadow(1px 0 1px rgba(0, 0, 0, 1)) 
+  drop-shadow(-1px 0 1px rgba(0, 0, 0, 1));
+  ;
+  animation: fadeInScale 1s ease-out, float 3s ease-in-out 1s infinite;
+}
+
+/* ❌ UNUSED CSS - The slide div is commented out in Carousel.jsx */
+.slide {
+  padding: 3rem 4rem;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 16px;
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 700px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all var(--transition-base);
+}
+
+/* ❌ UNUSED CSS - Related to unused .slide class */
+.slide:hover {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 24px 80px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 1024px) {
+  .carousel {
+    height: 80vh;
+  }
+
+  /* ❌ UNUSED CSS - .slide media query variant */
+  .slide {
+    padding: 2.5rem 3rem;
+    max-width: 600px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    height: 60vh;
+  }
+
+  /* ❌ UNUSED CSS - .slide media query variant */
+  .slide {
+    padding: 2rem 2rem;
+    max-width: 90%;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 50vh;
+  }
+
+  /* ❌ UNUSED CSS - .slide media query variant */
+  .slide {
+    padding: 1.5rem 1.5rem;
+    max-width: 95%;
+    font-size: 1rem;
+  }
+}

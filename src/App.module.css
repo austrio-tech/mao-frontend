@@ -1,0 +1,125 @@
+/* src/App.module.css */
+.app {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-dark);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-accent) 50%, var(--text-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2.5rem;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--primary-accent);
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+p {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+button, .btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before, .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left var(--transition-base);
+  z-index: 0;
+}
+
+button:hover::before, .btn:hover::before {
+  left: 100%;
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+button:active, .btn:active {
+  transform: translateY(-1px);
+}
+
+a {
+  color: var(--primary-accent);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-fast);
+  font-weight: 500;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+  transition: width var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+a:hover::after {
+  width: 100%;
+}

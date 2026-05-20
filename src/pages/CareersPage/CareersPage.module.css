@@ -1,0 +1,626 @@
+.careersPageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.careersPage {
+  padding: 6rem 3rem 2rem;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+
+.careersPage::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  display: none;
+}
+
+.careersPage::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  display: none;
+}
+
+.careersContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+  /* padding: 0 1rem; */
+}
+
+.careersHeader {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.careersHeader h1 {
+  color: transparent;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.careersHeader p {
+  /* color: rgba(255, 255, 255, 0.8); */
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.careersContent {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.aboutCareers {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.aboutCareers h2 {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.benefitsList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.benefitCard {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(212, 175, 55, 0.04) 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.benefitCard:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(212, 175, 55, 0.08) 100%);
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+}
+
+.benefitCard i {
+  font-size: 2rem;
+  color: var(--accent-color);
+}
+
+.benefitCard h3 {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.benefitCard p {
+  /* color: var(--text-dark); */
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.careerForm {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.6) 100%);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.careerForm h2 {
+  color: var(--text-dark);
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.successMessage {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  color: #16a34a;
+  font-weight: 500;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+.errorMessage {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  color: #dc2626;
+  font-weight: 500;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+.highlightEmail {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.loadingMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  color: #2563eb;
+  font-weight: 500;
+  animation: slideIn 0.3s ease-out;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(37, 99, 235, 0.2);
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input,
+.textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all var(--transition-base);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.input[type="file"]::file-selector-button {
+  padding: 0.5rem 1rem;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 1rem;
+  transition: all var(--transition-base);
+}
+
+.input[type="file"]::file-selector-button:hover {
+  background: var(--accent-light);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  background: white;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitBtn {
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .careersContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .careersPage {
+    padding: 3.5rem 2rem 2rem;
+  }
+
+  .careersContainer {
+    padding: 0;
+  }
+
+  .careersHeader {
+    margin-bottom: 2.5rem;
+  }
+
+  .careersHeader h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+
+  .careersHeader p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .careersPageContainer {
+    min-height: auto;
+    overflow-x: hidden;
+  }
+
+  .careersPage {
+    padding: 2.5rem 1.5rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .careersContainer {
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .careersHeader {
+    margin-bottom: 2rem;
+  }
+
+  .careersHeader h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .careersHeader p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+
+  .careersContent {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .aboutCareers {
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .aboutCareers h2 {
+    font-size: 1.5rem;
+  }
+
+  .benefitsList {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .benefitCard {
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .benefitCard i {
+    font-size: 1.8rem;
+  }
+
+  .benefitCard h3 {
+    font-size: 1.1rem;
+  }
+
+  .benefitCard p {
+    font-size: 0.9rem;
+  }
+
+  .careerForm {
+    padding: 1.5rem;
+    gap: 1.2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .careerForm h2 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .formGroup {
+    gap: 0.4rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .input,
+  .textarea {
+    padding: 0.7rem 1rem;
+    font-size: 16px;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .input[type="file"]::file-selector-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .textarea {
+    min-height: 100px;
+  }
+
+  .submitBtn {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+
+  .loadingMessage,
+  .successMessage,
+  .errorMessage {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .careersPageContainer {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .careersPage {
+    padding: 2rem 1rem 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .careersContainer {
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .careersHeader {
+    margin-bottom: 1.5rem;
+  }
+
+  .careersHeader h1 {
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .careersHeader p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .careersContent {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .aboutCareers h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .benefitCard {
+    padding: 0.9rem;
+    gap: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .benefitCard i {
+    font-size: 1.5rem;
+  }
+
+  .benefitCard h3 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .benefitCard p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .careerForm {
+    padding: 1rem;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .careerForm h2 {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .formGroup {
+    gap: 0.3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .input,
+  .textarea {
+    padding: 0.65rem 0.9rem;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .input[type="file"]::file-selector-button {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+    border-radius: 3px;
+  }
+
+  .textarea {
+    min-height: 90px;
+    font-size: 16px;
+  }
+
+  .submitBtn {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  .loadingMessage,
+  .successMessage,
+  .errorMessage {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    gap: 0.75rem;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(37, 99, 235, 0.2);
+    border-top-width: 2px;
+  }
+
+  .highlightEmail {
+    font-weight: bold;
+    color: #16a34a;
+  }
+}
+
+@media (max-width: 320px) {
+  .careersPage {
+    padding: 1.5rem 0.75rem 1rem;
+  }
+
+  .careersHeader h1 {
+    font-size: 1.2rem;
+  }
+
+  .careersHeader p {
+    font-size: 0.8rem;
+  }
+
+  .careerForm {
+    padding: 0.8rem;
+  }
+
+  .input,
+  .textarea {
+    padding: 0.6rem 0.8rem;
+    font-size: 16px;
+  }
+}

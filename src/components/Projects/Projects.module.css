@@ -1,0 +1,230 @@
+.projects {
+  padding: 6rem 3rem;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects h2 {
+  color: var(--text-dark);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.projectsContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.tableWrapper {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.7) 100%);
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  transition: all var(--transition-base);
+}
+
+.tableWrapper:hover {
+  box-shadow: 0 20px 60px rgba(212, 175, 55, 0.15);
+}
+
+.projectsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.projectsTable thead {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(45, 212, 191, 0.08) 100%);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+.projectsTable th {
+  padding: 1.5rem 1.5rem;
+  text-align: left;
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+.projectsTable th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+}
+
+.projectsTable tbody tr {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  transition: all var(--transition-fast);
+  position: relative;
+  border-left: 4px solid transparent;
+}
+
+.projectsTable tbody tr:hover {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(45, 212, 191, 0.03) 100%);
+  border-left-color: var(--accent-color);
+}
+
+.projectsTable td {
+  padding: 1.5rem 1.5rem;
+  color: var(--text-dark);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.6;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-base);
+}
+
+.statusBadge.completed {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.05) 100%);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.statusBadge.current {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+  color: var(--accent-color);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.projectsTable tbody tr:hover .statusBadge {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1024px) {
+  .projects {
+    padding: 4rem 2rem;
+  }
+
+  .projects h2 {
+    margin-bottom: 3rem;
+  }
+
+  .projectsContainer {
+    max-width: 100%;
+  }
+
+  .projectsTable {
+    font-size: 0.9rem;
+  }
+
+  .projectsTable th,
+  .projectsTable td {
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 3rem 1.5rem;
+  }
+
+  .projects h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .tableWrapper {
+    border-radius: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .projectsTable {
+    font-size: 0.85rem;
+    min-width: 700px;
+  }
+
+  .projectsTable th,
+  .projectsTable td {
+    padding: 1rem 0.75rem;
+  }
+
+  .projectsTable th {
+    font-size: 0.9rem;
+  }
+
+  .projectsTable td {
+    font-size: 0.85rem;
+  }
+
+  .statusBadge {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 2rem 1rem;
+  }
+
+  .projects h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .tableWrapper {
+    padding: 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .projectsTable {
+    font-size: 0.8rem;
+    min-width: 650px;
+  }
+
+  .projectsTable th,
+  .projectsTable td {
+    padding: 0.8rem 0.6rem;
+  }
+
+  .projectsTable th {
+    font-size: 0.8rem;
+    padding: 0.8rem 0.5rem;
+  }
+
+  .projectsTable tbody tr {
+    border-left-width: 3px;
+  }
+
+  .projectsTable td {
+    font-size: 0.8rem;
+  }
+
+  .statusBadge {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.7rem;
+    border-radius: 4px;
+  }
+
+  .projectsTable thead {
+    font-size: 0.75rem;
+  }
+}
