@@ -1,6 +1,7 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import styles from './App.module.css';
 import HomePage from './pages/HomePage/HomePage';
 import ProfileDownload from './pages/ProfileDownload/ProfileDownload';
@@ -15,6 +16,7 @@ function App() {
           <Route path="/profile" element={<ProfileDownload />} />
           <Route path="/careers" element={<CareersPage />} />
         </Routes>
+        <SpeedInsights />
       </div>
     </Router>
   );
